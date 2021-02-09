@@ -5,18 +5,53 @@
   box-sizing: border-box;
 }
 
+input {
+  outline: none;
+  width: 400px;
+  height: 50px;
+  margin: 20px;
+  border: 1px solid #fff;
+  background-color: #000;
+  color: #fff;
+  font-size: 25px;
+}
+
+input::placeholder {
+  color: #fff;
+}
+
+button {
+  background-color: transparent;
+  outline: none;
+  cursor: pointer;
+  height: 50px;
+  width: 50px;
+  vertical-align: -0.1em;
+  border: 1px solid white;
+}
+
+button .fas {
+  color: #fff;
+  font-size: 30px;
+}
+
 #app {
   min-height: 100vh;
+  min-width: 100%;
+  background-color: #000;
+  color: #fff;
 }
 
 .movie-container {
-  width: 1400px;
-  height: 900px;
   margin: 0 auto;
-  border: 2px solid black;
+  width: 100%;
+  padding: 15px;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .movie-box {
   width: 300px;
-  margin: 20px;
+  margin: 5px;
+  border: 1px solid #fff;
 }

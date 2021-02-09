@@ -14,11 +14,36 @@
 <body>
     
     <div id="app">
-        
 
+        <div class="input-movies">
 
+            <input type="text" placeholder="Cerca qui" v-model="inputValue">
+            <button @click="inputSearch">Cerca</button>
+            
+        </div>
 
+        <div class="movie-container">
 
+            <div class="movie-box" v-for="film in movies">
+                <div>
+                    <span>Titolo: </span>
+                    <span class="movie-title">{{film.title}}</span>
+                </div>
+                <div>
+                    <span>Titolo originale: </span>
+                    <span>{{film.original_title}}</span>
+                </div>
+                <div>
+                    <span>Lingua: </span>
+                    <span>{{film.original_language}}</span>
+                </div>
+                <div>
+                    <span>Voto: </span>
+                    <span>{{film.vote_average}}</span>
+                </div>
+            </div>
+
+        </div>
 
     </div>
 

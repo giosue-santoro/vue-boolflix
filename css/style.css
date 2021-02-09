@@ -4,3 +4,19 @@
   font-family: "Lato", sans-serif;
   box-sizing: border-box;
 }
+
+#app {
+  min-height: 100vh;
+}
+
+.movie-container {
+  width: 1400px;
+  height: 900px;
+  margin: 0 auto;
+  border: 2px solid black;
+}
+
+.movie-box {
+  width: 300px;
+  margin: 20px;
+}

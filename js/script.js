@@ -17,10 +17,17 @@ new Vue ({
                 self.movies = re.data.results
             })
             console.log(self.movies);
-        }
+        },
+
+        getPoster: function(movie) {
+            return 'http://image.tmdb.org/t/p/w500' + movie.poster_path;
+        },
+
+        starRating: function(el) {
+            return Math.round(el / 2);
+        },
 
     }
-
 })
 
 Vue.config.devtools = true; 

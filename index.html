@@ -24,8 +24,9 @@
         </div>
 
         <div class="movie-container">
-
             <div class="movie-box" v-for="film in movies">
+                
+                <img :src="getPoster(film)" class="img-resize">
                 <div>
                     <span>{{film.title}}</span>
                 </div>
@@ -35,9 +36,11 @@
                 <div>
                     <span>{{film.original_language}}</span>
                 </div>
-                <div>
-                    <span>{{film.vote_average}}</span>
+                <div class="stars">
+                    <i v-for="film in starRating(film.vote_average)" class="fas fa-star"></i>
+                    <i v-for="film in (5 - starRating(film.vote_average))" class="far fa-star"></i>
                 </div>
+
             </div>
 
         </div>

@@ -5,6 +5,10 @@
   box-sizing: border-box;
 }
 
+.show {
+  display: block;
+}
+
 input {
   outline: none;
   width: 400px;
@@ -51,6 +55,7 @@ button .fas {
 }
 
 .movie-box {
+  position: relative;
   width: 300px;
   height: 400px;
   margin: 5px;
@@ -58,7 +63,12 @@ button .fas {
 }
 
 .movie-box img {
-  z-index: 1;
+  position: absolute;
+}
+
+.data-box {
+  position: absolute;
+  top: 0px;
 }
 
 .img-resize {
@@ -72,5 +82,5 @@ button .fas {
 }
 
 .stars i {
-  color: white;
+  color: rgb(255, 196, 0);
 }

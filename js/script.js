@@ -20,7 +20,11 @@ new Vue ({
         },
 
         getPoster: function(movie) {
-            return 'http://image.tmdb.org/t/p/w500' + movie.poster_path;
+            if (movie.poster_path !== null) {
+                return 'http://image.tmdb.org/t/p/w500' + movie.poster_path;
+            } else {
+                return 'img/error.png';
+            }
         },
 
         starRating: function(el) {
@@ -31,3 +35,7 @@ new Vue ({
 })
 
 Vue.config.devtools = true; 
+// showData: function() {
+//     const dataBox = document.getElementsByClassName('data-box');
+//     dataBox.classList.toggle('show');
+// }

@@ -14,15 +14,17 @@
 </head>
 <body>
     
+    <!-- VUE -->
     <div id="app">
-
+        
+        <!-- HEADER -->
         <div class="input-movies">
-
             <input type="text" placeholder="Cerca qui" v-model="inputValue" @keyup.enter="inputSearch">
             <button @click="inputSearch"><i class="fas fa-search"></i></button>
-
         </div>
+        <!-- /HEADER -->
 
+        <!-- MAIN -->
         <div class="movie-container">
             <div class="movie-box" v-for="film in movies">
 
@@ -43,10 +45,11 @@
                 </div>
                
             </div>
-
         </div>
+        <!-- /MAIN -->
 
     </div>
+    <!-- /VUE -->
 
     <script src="js/script.js"></script>
 </body>

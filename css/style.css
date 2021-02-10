@@ -1,3 +1,4 @@
+/* GENERAL & UTILITIES */
 * {
   margin: 0;
   padding: 0;
@@ -5,8 +6,11 @@
   box-sizing: border-box;
 }
 
-.show {
-  display: block;
+#app {
+  min-height: 100vh;
+  min-width: 100%;
+  background-color: #000;
+  color: #fff;
 }
 
 .flag-resize {
@@ -14,6 +18,19 @@
   margin: 3px 0 0 5px;
 }
 
+.img-resize {
+  width: 300px;
+  height: 400px;
+  z-index: 2;
+}
+
+.img-resize:hover {
+  opacity: 0;
+  filter: alpha(opacity=0);
+}
+/* GENERAL & UTILITIES */
+
+/* MAIN */
 input {
   outline: none;
   width: 400px;
@@ -44,13 +61,6 @@ button .fas {
   font-size: 30px;
 }
 
-#app {
-  min-height: 100vh;
-  min-width: 100%;
-  background-color: #000;
-  color: #fff;
-}
-
 .movie-container {
   margin: 0 auto;
   width: 100%;
@@ -71,17 +81,7 @@ button .fas {
   position: absolute;
 }
 
-.img-resize {
-  width: 300px;
-  height: 400px;
-  z-index: 2;
-}
-
-.img-resize:hover {
-  opacity: 0;
-  filter: alpha(opacity=0);
-}
-
 .stars i {
   color: rgb(255, 196, 0);
 }
+/* /MAIN */

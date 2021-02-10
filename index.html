@@ -27,19 +27,15 @@
 
             <div class="movie-box" v-for="film in movies">
                 <div>
-                    <span>Titolo: </span>
-                    <span class="movie-title">{{film.title}}</span>
+                    <span>{{film.title}}</span>
                 </div>
                 <div>
-                    <span>Titolo originale: </span>
                     <span>{{film.original_title}}</span>
                 </div>
                 <div>
-                    <span>Lingua: </span>
                     <span>{{film.original_language}}</span>
                 </div>
                 <div>
-                    <span>Voto: </span>
                     <span>{{film.vote_average}}</span>
                 </div>
             </div>

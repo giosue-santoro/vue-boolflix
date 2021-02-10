@@ -17,6 +17,13 @@ new Vue ({
                 self.movies = re.data.results
             })
             console.log(self.movies);
+
+            axios.get('https://api.themoviedb.org/3/search/tv?api_key=6633b10121d740b0c55d03556425601b&query=' + self.inputValue)
+            .then((re) => {
+                self.movies = re.data.results
+            })
+            console.log(self.movies);
+
         },
 
         getPoster: function(movie) {
@@ -24,6 +31,30 @@ new Vue ({
                 return 'http://image.tmdb.org/t/p/w500' + movie.poster_path;
             } else {
                 return 'img/error.png';
+            }
+        },
+
+        showFlag: function(movie) {
+            if (movie.original_language == "en") {
+                return 'img/gb.png';
+            } 
+            if (movie.original_language === "it") {
+                return 'img/it.png';
+            } 
+            if (movie.original_language == "fr") {
+                return 'img/fr.png';
+            } 
+            if (movie.original_language == "de") {
+                return 'img/de.png';
+            } 
+            if (movie.original_language == "ja") {
+                return 'img/jp.png';
+            } 
+            if (movie.original_language == "es") {
+                return 'img/es.png';
+            } 
+            if (movie.original_language == "zh") {
+                return 'img/cn.png';
             }
         },
 

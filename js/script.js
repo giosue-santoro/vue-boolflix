@@ -29,7 +29,7 @@ new Vue ({
             if (movie.poster_path !== null) {
                 return 'http://image.tmdb.org/t/p/w500' + movie.poster_path;
             } else {
-                return 'img/error.png';
+                return 'img/error.jpg';
             }
         },
 

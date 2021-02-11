@@ -18,10 +18,30 @@
     <div id="app">
         
         <!-- HEADER -->
-        <div class="input-movies">
-            <input type="text" placeholder="Cerca qui" v-model="inputValue" @keyup.enter="inputSearch">
-            <button @click="inputSearch"><i class="fas fa-search"></i></button>
-        </div>
+        <header>
+            <div class="input-movies">
+                <nav class="nav-left">
+                    <img src="img/logo.png" alt="logo boolflix">
+                    <div>Home</div>
+                    <div>SerieTV</div>
+                    <div>Film</div>
+                    <div>Originali</div>
+                    <div>Aggiunti di recente</div>
+                    <div>La mia lista</div>
+                </nav>
+                
+                <nav class="nav-right">
+                    <input type="text" placeholder="Cerca qui" v-model="inputValue" @keyup.enter="inputSearch" spellcheck="false">
+                    <span @click="inputSearch"><i class="fas fa-search"></i></span>
+                    <span id="custom-fa">
+                        <i class="fas fa-bell"></i>
+                        <i class="fas fa-user-circle"></i>
+                    </span>
+                </nav>
+            </div>
+            
+       </header>
+        
         <!-- /HEADER -->
 
         <!-- MAIN -->
@@ -30,16 +50,23 @@
 
                 <img :src="getPoster(film)" class="img-resize">
                 <div>
-                    <span>Titolo: {{film.title}}</span>
+                    <span class="data-style">Titolo: </span> 
+                    <span>{{film.title}}</span>
                 </div>
                 <div>
-                    <span>Titolo originale: {{film.original_title}}</span>
+                    <span class="data-style">Titolo originale: </span> 
+                    <span>{{film.original_title}}</span>
                 </div>
                 <div>
-                    <span>Lingua: <img :src="showFlag(film)" class="flag-resize"></span>
+                    <span class="data-style">Lingua: </span> 
+                    <span><img :src="showFlag(film)" class="flag-resize"></span>
+                </div>
+                <div>
+                    <span class="data-style">Data d'uscita: </span>
+                    <span>{{film.release_date}}</span>
                 </div>
                 <div class="stars">
-                    Voto: 
+                    <span class="data-style">Voto: </span>
                     <i v-for="film in starRating(film.vote_average)" class="fas fa-star"></i>
                     <i v-for="film in (5 - starRating(film.vote_average))" class="far fa-star"></i>
                 </div>

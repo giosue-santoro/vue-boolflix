@@ -8,7 +8,6 @@
 
 #app {
   min-height: 100vh;
-  min-width: 100%;
   background-color: #000;
   color: #fff;
 }
@@ -20,7 +19,7 @@
 
 .img-resize {
   width: 300px;
-  height: 400px;
+  height: 500px;
   z-index: 2;
 }
 
@@ -28,53 +27,100 @@
   opacity: 0;
   filter: alpha(opacity=0);
 }
+
+.inline-block {
+  display: inline-block;
+}
 /* GENERAL & UTILITIES */
 
-/* MAIN */
+/* HEADER */
+/* Nav LEFT */
+.input-movies {
+  height: 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-left {
+  color: rgb(146, 141, 141);
+  width: 55%;
+  display: flex;
+  align-items: center;
+  font-size: 22px;
+  font-weight: bold;
+  justify-content: space-around;
+}
+
+.nav-left div:hover {
+  color: #fff;
+  cursor: pointer;
+}
+
+.nav-left img {
+  margin-right: 30px;
+  cursor: pointer;
+}
+
+/* Nav RIGHT */
 input {
   outline: none;
-  width: 400px;
   height: 50px;
-  margin: 20px;
   border: 1px solid #fff;
   background-color: #000;
   color: #fff;
   font-size: 25px;
+  padding: 10px;
+  margin-right: 20px;
 }
 
 input::placeholder {
   color: #fff;
 }
 
-button {
-  background-color: transparent;
-  outline: none;
-  cursor: pointer;
-  height: 50px;
-  width: 50px;
-  vertical-align: -0.1em;
-  border: 1px solid white;
+.nav-right {
+  padding-right: 15px;
 }
 
-button .fas {
+.nav-right span:first-of-type {
+  position: absolute;
+  top: 32px;
+  right: 145px;
   color: #fff;
+  cursor: pointer;
   font-size: 30px;
 }
 
+#custom-fa > i {
+  font-size: 30px;
+  cursor: pointer;
+  margin: 0 10px;
+}
+/* /HEADER */
+
+/* MAIN */
 .movie-container {
   margin: 0 auto;
   width: 100%;
   padding: 15px;
   display: flex;
   flex-wrap: wrap;
+  overflow-x: hidden;
 }
 
 .movie-box {
-  position: relative;
-  width: 300px;
-  height: 400px;
-  margin: 5px;
+  width: 308px;
+  height: 500px;
+  margin: 2px;
   cursor: pointer;
+}
+
+.movie-box div {
+  margin: 10px;
+}
+
+.data-style {
+  font-weight: bold;
 }
 
 .movie-box img {

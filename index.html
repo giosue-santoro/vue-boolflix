@@ -32,8 +32,8 @@
                 </nav>
                 
                 <nav class="nav-right">
-                    <input type="text" placeholder="Cerca qui" v-model="inputValue" @keyup.enter="inputSearch" spellcheck="false">
-                    <span @click="inputSearch"><i class="fas fa-search"></i></span>
+                    <input type="text" placeholder="Cerca qui" v-model="inputValue" @keyup.enter="allSearch" spellcheck="false">
+                    <span @click="allSearch"><i class="fas fa-search"></i></span>
                     <span id="custom-fa">
                         <div><span>1</span></div>
                         <i class="fas fa-bell"></i>
@@ -70,6 +70,10 @@
                         <span class="data-style">Data d'uscita: </span>
                         <span>{{film.release_date}}</span>
                     </div>
+                    <div>
+                        <span class="data-style">Attori: </span>
+                        <span>{{actors}}</span>
+                    </div>
                     <div class="stars">
                         <span class="data-style">Voto: </span>
                         <i v-for="film in starRating(film.vote_average)" class="fas fa-star"></i>
@@ -77,7 +81,7 @@
                     </div>
                 
                 </div>
-                <span id="slide-right" v-if="movies.length > 6" @click="slideRight()"><i class="fas fa-chevron-right"></i></span>
+                <span id="slide-right" v-if="movies.length > 6" @click="scrollRight()"><i class="fas fa-chevron-right"></i></span>
 
             </div>   
             
@@ -89,21 +93,17 @@
 
                     <img :src="getPoster(el)" class="img-resize">
                     <div>
-                        <span class="data-style">Titolo: </span> 
-                        <span>{{el.title}}</span>
-                    </div>
-                    <div>
-                        <span class="data-style">Titolo originale: </span> 
-                        <span>{{el.original_title}}</span>
+                        <span class="data-style">Overview: </span> 
+                        <span>{{el.overview}}</span>
                     </div>
                     <div>
                         <span class="data-style">Lingua: </span> 
                         <span><img :src="showFlag(el)" class="flag-resize"></span>
                     </div>
-                    <div>
-                        <span class="data-style">Data d'uscita: </span>
-                        <span>{{el.release_date}}</span>
-                    </div>
+                    <!-- <div>
+                        <span class="data-style">Attori: </span>
+                        <span>{{actors}}</span>
+                    </div> -->
                     <div class="stars">
                         <span class="data-style">Voto: </span>
                         <i v-for="el in starRating(el.vote_average)" class="fas fa-star"></i>

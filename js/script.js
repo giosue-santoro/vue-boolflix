@@ -3,8 +3,12 @@ new Vue ({
     el: '#app',
 
     data: {
+
         movies: [],
+        series: [],
         inputValue: '',
+        showNavbar: true,
+
     },
 
     methods: {
@@ -18,11 +22,11 @@ new Vue ({
             })
             console.log(self.movies);
 
-            // axios.get('https://api.themoviedb.org/3/search/tv?api_key=6633b10121d740b0c55d03556425601b&query=' + self.inputValue)
-            // .then((re) => {
-            //     self.movies = re.data.results
-            // })
-            // console.log(self.movies);
+            axios.get('https://api.themoviedb.org/3/search/tv?api_key=6633b10121d740b0c55d03556425601b&query=' + self.inputValue)
+            .then((re) => {
+                self.series = re.data.results
+            })
+            console.log(self.series);
         },
 
         getPoster: function(movie) {
@@ -61,11 +65,20 @@ new Vue ({
             return Math.round(el / 2);
         },
 
+        // slideRight: function() {
+        //     let content = document.getElementById('movie-container'),
+        //     scrollStep = 200;
+
+        //     let sl = content.scrollLeft,
+        //         cw = content.scrollWidth;
+
+        //     if ((sl + scrollStep) >= cw) {
+        //     content.scrollTo(cw, 0);
+        //     } else {
+        //     content.scrollTo((sl + scrollStep), 0);
+        //     }
+        // }
     }
 })
 
-Vue.config.devtools = true; 
-// showData: function() {
-//     const dataBox = document.getElementsByClassName('data-box');
-//     dataBox.classList.toggle('show');
-// }
+Vue.config.devtools = true;

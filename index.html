@@ -19,6 +19,7 @@
         
         <!-- HEADER -->
         <header>
+            
             <div class="input-movies">
                 <nav class="nav-left">
                     <img src="img/logo.png" alt="logo boolflix">
@@ -42,38 +43,78 @@
             </div>
             
        </header>
-        
         <!-- /HEADER -->
 
         <!-- MAIN -->
-        <div class="movie-container">
-            <div class="movie-box" v-for="film in movies">
+        <main>
+            <h1 class="main-title" v-if="movies.length !== 0">Film</h1>
+            <div id="movie-container">
 
-                <img :src="getPoster(film)" class="img-resize">
-                <div>
-                    <span class="data-style">Titolo: </span> 
-                    <span>{{film.title}}</span>
+                <span id="slide-left" v-if="movies.length > 6" @click="slideLeft()"><i class="fas fa-chevron-left"></i></span>
+                <div class="movie-box" v-for="film in movies">
+
+                    <img :src="getPoster(film)" class="img-resize">
+                    <div>
+                        <span class="data-style">Titolo: </span> 
+                        <span>{{film.title}}</span>
+                    </div>
+                    <div>
+                        <span class="data-style">Titolo originale: </span> 
+                        <span>{{film.original_title}}</span>
+                    </div>
+                    <div>
+                        <span class="data-style">Lingua: </span> 
+                        <span><img :src="showFlag(film)" class="flag-resize"></span>
+                    </div>
+                    <div>
+                        <span class="data-style">Data d'uscita: </span>
+                        <span>{{film.release_date}}</span>
+                    </div>
+                    <div class="stars">
+                        <span class="data-style">Voto: </span>
+                        <i v-for="film in starRating(film.vote_average)" class="fas fa-star"></i>
+                        <i v-for="film in (5 - starRating(film.vote_average))" class="far fa-star"></i>
+                    </div>
+                
                 </div>
-                <div>
-                    <span class="data-style">Titolo originale: </span> 
-                    <span>{{film.original_title}}</span>
+                <span id="slide-right" v-if="movies.length > 6" @click="slideRight()"><i class="fas fa-chevron-right"></i></span>
+
+            </div>   
+            
+            <h1 class="main-title" v-if="series.length !== 0">SerieTV</h1>
+            <div class="series-container">
+                
+                <span id="slide-left" v-if="series.length > 6"><i class="fas fa-chevron-left"></i></span>
+                <div class="movie-box" v-for="el in series">
+
+                    <img :src="getPoster(el)" class="img-resize">
+                    <div>
+                        <span class="data-style">Titolo: </span> 
+                        <span>{{el.title}}</span>
+                    </div>
+                    <div>
+                        <span class="data-style">Titolo originale: </span> 
+                        <span>{{el.original_title}}</span>
+                    </div>
+                    <div>
+                        <span class="data-style">Lingua: </span> 
+                        <span><img :src="showFlag(el)" class="flag-resize"></span>
+                    </div>
+                    <div>
+                        <span class="data-style">Data d'uscita: </span>
+                        <span>{{el.release_date}}</span>
+                    </div>
+                    <div class="stars">
+                        <span class="data-style">Voto: </span>
+                        <i v-for="el in starRating(el.vote_average)" class="fas fa-star"></i>
+                        <i v-for="el in (5 - starRating(el.vote_average))" class="far fa-star"></i>
+                    </div>
+                
                 </div>
-                <div>
-                    <span class="data-style">Lingua: </span> 
-                    <span><img :src="showFlag(film)" class="flag-resize"></span>
-                </div>
-                <div>
-                    <span class="data-style">Data d'uscita: </span>
-                    <span>{{film.release_date}}</span>
-                </div>
-                <div class="stars">
-                    <span class="data-style">Voto: </span>
-                    <i v-for="film in starRating(film.vote_average)" class="fas fa-star"></i>
-                    <i v-for="film in (5 - starRating(film.vote_average))" class="far fa-star"></i>
-                </div>
-               
-            </div>
-        </div>
+                <span id="slide-right" v-if="series.length > 6"><i class="fas fa-chevron-right"></i></span>
+                
+            </div>    
+        </main>
         <!-- /MAIN -->
 
     </div>

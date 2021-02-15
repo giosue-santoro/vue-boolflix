@@ -9,8 +9,7 @@ new Vue ({
         actors: [],
         inputValue: '',
         showNavbar: true,
-        creditID: 0
-        
+
     },
 
     mounted() {
@@ -106,20 +105,17 @@ new Vue ({
             return Math.round(el / 2);
         },
 
-        // findActors: function () {
-        //     const self = this;
-        //     list = [];
+        findActors: function (el) {
+            const self = this;
 
-        //     axios
-        //         .get('https://api.themoviedb.org/3/movie/' + creditID + '/credits?api_key=6633b10121d740b0c55d03556425601b' )
-        //         .then(function(re) {
-        //           for (var i = 0; i < 5; x++) {
-        //             self.list += re.data.cast[i];
-        //         }
-        //     })
-
-        //     this.list = this.actors;
-        // },
+            axios
+                .get('https://api.themoviedb.org/3/movie/' + el + '/credits?api_key=6633b10121d740b0c55d03556425601b' )
+                .then(function(re) {
+                  for (let i = 0; i < 5; x++) {
+                    self.actors.push(re.data.cast[i].name)
+                }
+            })
+        },
 
         // scrollRight: function() {
         //     const target = document.getElementById('movie-container');
